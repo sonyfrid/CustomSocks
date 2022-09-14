@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/styles/constructor.css" type="text/css" />
+<link rel="stylesheet" href="/styles/normalize.css" type="text/css"/>
+
+
+<div class="row g-3 content">
+  <h2 class="mb-3 font align-self-center">Создай себе носок!</h2>
+  <div class="col-12 mb-6 generator-content">
+    {{!-- ОТОБРАЖЕНИЕ НОСКА --}}
+      <div class="col-6 socks-output-container">
+        <div id="sock">
+          <div id="sock-color"></div>
+          <div id="sock-pictures"></div>
+          <div id="sock-prints"></div>
+          <div id="sock-constructor"></div>
+        </div>
+      </div>
+      <div class="col-6 socks-form">
+      <form class='sock-form' name='constructor' method='post' action='/constructor'>
+          УЗОР
+          <h3>Выбери узор:</h3>
+          <div class="form-check prints-form">
+            <p data-id="1" class="prints prints_(нет)">
+              <input class="form-check-input" type="radio" name="prints" id="prints{{id}}" checked>
+              <label class="form-check-label" for="prints1">(нет)</label>
+            </p>
+            {{#each prints}}
+            <p data-id="{{id}}" class="prints prints_{{prints_name}}">
+              <input class="form-check-input" type="radio" name="prints" id="prints{{id}}">
+              <label class="form-check-label" for="prints{{id}}">{{prints_name}}</label>
+            </p>
+            {{/each}}
+          </div>
+          {{!-- КАРТИНКА --}}
+          <h3>Выбери картинку:</h3>
+          <div class="form-check pictures-form">
+            <p data-id="1" class="pictures pictures_(нет)">
+              <input class="form-check-input" type="radio" name="pic" id="pic1" checked>
+              <label class="form-check-label" for="pic{{id}}">(нет)</label>
+            </p>
+            {{#each pictures}}
+            <p data-id="{{id}}" class="pictures pictures_{{pic_name}}">
+              <input class="form-check-input" type="radio" name="pic" id="pic{{id}}">
+              <label class="form-check-label" for="pic{{id}}">{{pic_name}}</label>
+            </p>
+            {{/each}}
+          </div>
+          
+          <button href="/orders" type="button" class="btn btn-outline-dark">Добавить в корзину</button>
+
+          
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+          
